@@ -3,13 +3,12 @@ This repo contains PyTorch code for training neural networks without global back
 
 A more detailed description of the experiments will soon appear on ArXiv.
 
-Supervised training of neural networks for classification is typically performed with a global loss function. The loss function provides a gradient 
-for the output layer, and this gradient is back-propagated to hidden layers to dictate an update direction for the weights. An alternative approach is to 
-train the network with layer-wise loss functions. In this work we demonstrate, for the first time, that layer-wise training can match global 
-back-propagation in VGG-like architectures, on a variety of image datasets. On some datasets, the results can also match residual architectures 
-trained with standard back-propagation. We use single-layer sub-networks and two different supervised loss functions to generate local error signals for 
-the hidden layers, and we show that the combination of these losses help with optimization in the context of local learning. Using local errors could be a 
-step towards more biologically plausible deep learning because the global error does not have to be transported back to hidden layers.
+Supervised training of neural networks for classification is typically performed with a global loss function. The loss function provides a gradient for the
+output layer, and this gradient is back-propagated to hidden layers to dictate an update direction for the weights. An alternative approach is to train 
+the network with layer-wise loss functions. In this paper we demonstrate, for the first time, that layer-wise training can approach the state-of-the-art 
+on a variety of image datasets. We use single-layer sub-networks and two different supervised loss functions to generate local error signals for the hidden 
+layers, and we show that the combination of these losses help with optimization in the context of local learning. Using local errors could be a step 
+towards more biologically plausible deep learning because the global error does not have to be transported back to hidden layers.
 
 In the tables below, 'pred' indicates a layer-wise cross-entropy loss, 'sim' indicates a layer-wise similarity matching loss, and 'predsim' indicates a 
 combination of these losses. For the local losses, the computational graph is detached after each hidden layer.
