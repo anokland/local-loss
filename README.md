@@ -1,7 +1,7 @@
 # Training neural networks with local error signals
 This repo contains PyTorch code for training neural networks without global backprop. Experiments are performed by Arild Nøkland and Lars Hiller Eidnes.
 
-A more detailed description of the experiments will soon appear on ArXiv.
+A more detailed description of the experiments is available on arXiv here: https://arxiv.org/abs/1901.06656
 
 Supervised training of neural networks for classification is typically performed with a global loss function. The loss function provides a gradient for the
 output layer, and this gradient is back-propagated to hidden layers to dictate an update direction for the weights. An alternative approach is to train 
