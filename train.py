@@ -957,7 +957,7 @@ class Bottleneck(nn.Module):
             elif args.optim == 'adam' or args.optim == 'amsgrad':
                 self.optimizer = optim.Adam(self.shortcut.parameters(), lr=0, weight_decay=args.weight_decay, amsgrad=args.optim == 'amsgrad')
     
-    def set_learning_rate(self, alpha, lr, weight_decay, momentum):
+    def set_learning_rate(self, lr):
         self.lr = lr
         self.conv1.set_learning_rate(lr)
         self.conv2.set_learning_rate(lr)
@@ -1018,8 +1018,8 @@ class ResNet(nn.Module):
         layers = []
         stride_cum = 1
         for stride in strides:
-            stride_cum *= stride
             layers.append(block(self.in_planes, planes, stride, num_classes, input_dim//stride_cum))
+            stride_cum *= stride
             self.in_planes = planes * block.expansion
         return nn.Sequential(*layers)
 
